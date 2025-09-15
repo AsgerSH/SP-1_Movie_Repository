@@ -1,9 +1,5 @@
 # 🎬 SP-1 Movie Repository  
 
-![TMDb Logo](https://upload.wikimedia.org/wikipedia/commons/6/69/The_Movie_Database_logo.svg)
-
-# 🎬 SP-1 Movie Repository  
-
 ## 📌 Project Description  
 This project is part of **DAT 3rd Semester Fall 2025**.  
 The goal is to build a small backend that fetches movie data from the **TMDb API**, stores it in a database, and makes it possible to retrieve information about **movies, actors, directors, and genres**.  
