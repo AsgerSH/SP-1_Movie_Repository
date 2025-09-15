@@ -19,13 +19,4 @@ The goal is to build a small backend that fetches movie data from the **TMDb API
 - **JUnit + Testcontainers**  
 - **Maven**  
 
-## 🚀 How to Run  
-1. Clone the repository  
-2. Add your **TMDb API key** as an environment variable:  
-   ```bash
-   export API_KEY=your_api_key
-   mvn clean install
-   mvn exec:java
-   ```
-
 
