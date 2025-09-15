@@ -18,7 +18,6 @@ The goal is to build a small backend that fetches movie data from the **TMDb API
 - **TMDb API**  
 - **JUnit + Testcontainers**  
 - **Maven**
-
 - 
 📅 Development Plan
 **Day 1**
@@ -48,5 +47,5 @@ The goal is to build a small backend that fetches movie data from the **TMDb API
 
 👨‍💻 Contributors
 
-AsgerSH
-JonasOutzen
+- *AsgerSH*
+- *JonasOutzen*
