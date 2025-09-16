@@ -25,10 +25,13 @@ public class Movie {
     @Column(nullable = false)
     private int movieId;
 
-    @Column(nullable = false)
+    @ElementCollection
+    @CollectionTable(name = "movie_genres", joinColumns = @JoinColumn(name = "movie_id"))
+    @Column(name = "genre_id")
     private List<Integer> genreId;
 
-    @Column(nullable = false)
+
+    @Column(nullable = false, length = 1000)
     private String title;
 
     @Column(nullable = false)
@@ -41,9 +44,9 @@ public class Movie {
     private Double popularity;
 
     @Column(nullable = false)
-    private LocalDate releaseDate;
+    private String releaseDate;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
 

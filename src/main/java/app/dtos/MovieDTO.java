@@ -1,4 +1,4 @@
-package app.entities;
+package app.dtos;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,9 +15,6 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MovieDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
     @JsonProperty("id")
     private int movieId;
@@ -38,7 +35,7 @@ public class MovieDTO {
     private Double popularity;
 
     @JsonProperty("release_date")
-    private LocalDate releaseDate;
+    private String releaseDate;
 
     @JsonProperty("overview")
     private String description;

@@ -1,6 +1,7 @@
 package app;
 
 import app.config.HibernateConfig;
+import app.services.MovieService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -8,15 +9,15 @@ import jakarta.persistence.EntityManagerFactory;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Random sample text");
+        MovieService movieService = new MovieService();
 
-        // Svarer til en fabrik, der kan lave en ConnectionPool
-        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
+        // Dette er udkommenteret - så vi ikke skal vente på alle 5000 film hver gang
 
-        // Dette er vores connection (forbindelse)
-        EntityManager em = emf.createEntityManager();
+        // int totalPages = 286;
+        // System.out.println("Starting import of Danish movies...");
+        // movieService.importDanishMovies(totalPages);
+        // System.out.println("Import done");
+        
 
-        em.getTransaction().begin();
-
-        }
+    }
 }
