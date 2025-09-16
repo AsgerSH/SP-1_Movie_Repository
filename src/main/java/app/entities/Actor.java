@@ -7,7 +7,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @ToString
@@ -16,13 +18,13 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 
-public class Director {
+public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column (nullable = false)
-    private int directorId;
+    private int actorId;
 
     @Column (nullable = false)
     private String department;
@@ -31,10 +33,14 @@ public class Director {
     private String name;
 
     @Column (nullable = false)
+    private String character;
+
+    @Column (nullable = false)
     private Double popularity;
 
 
     // 1:m relationer
+
 
     // m:1 relationer
     @ManyToOne
@@ -42,5 +48,4 @@ public class Director {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Movie movie;
-
 }
