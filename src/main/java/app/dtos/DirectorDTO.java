@@ -1,6 +1,5 @@
 package app.dtos;
 
-import app.entities.MovieDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -20,12 +19,7 @@ public class DirectorDTO {
     @JsonProperty("known_for_department")
     private String department;
 
-    @JsonProperty("name")
     private String name;
-
-    @JsonProperty("popularity")
     private Double popularity;
-
-    private MovieDTO movieDTO;
 
 }
