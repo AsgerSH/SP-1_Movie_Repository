@@ -13,7 +13,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MovieDTO {
     @Id
