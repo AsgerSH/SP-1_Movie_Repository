@@ -47,12 +47,12 @@ public class Main {
 
         // Dette er udkommenteret - så vi ikke skal vente på alle 5000 film hver gang
 
-//         int totalPages = 286;
+//         int totalPages = 100;
 //         System.out.println("Starting import of Danish movies...");
 //         movieService.importDanishMovies(totalPages);
 //         System.out.println("Import done");
 
-        movieDAO.printAllActorAndDirectorsFromMovie("Flame & Citron");
+        movieDAO.printAllActorAndDirectorsFromMovie("Buster's World");
 
     }
 }
