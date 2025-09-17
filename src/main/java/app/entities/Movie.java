@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 @Getter
-@ToString
+@ToString(exclude = "genreId")
 @NoArgsConstructor
 @Entity
 @AllArgsConstructor
