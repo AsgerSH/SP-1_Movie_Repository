@@ -44,6 +44,8 @@ public class MovieService {
                         + "&with_original_language=da"
                         + "&language=en-US"
                         + "&sort_by=popularity.desc"
+                        + "&primary_release_date.gte=2020-09-17"
+                        + "&primary_release_date.lte=2025-09-17"
                         + "&page=" + page;
 
                 HttpRequest request = HttpRequest.newBuilder()
@@ -131,7 +133,6 @@ public class MovieService {
     }
 
     public void importDanishMovies(int totalPages) {
-
         List<MovieDTO> movieDTOList = getAllDanishMovies(totalPages);
 
         List<Movie> movieEntities = movieDTOList.stream()
@@ -143,7 +144,6 @@ public class MovieService {
 
             for (int i = 0; i < movieEntities.size(); i++) {
                 Movie movie = movieEntities.get(i);
-
                 addActorsAndDirectors(movie);
 
                 em.persist(movie);
