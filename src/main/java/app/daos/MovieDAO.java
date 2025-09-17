@@ -83,6 +83,14 @@ public class MovieDAO implements IDAO<Movie, Integer> {
         }
     }
 
+    public List<Movie> topXPopularMovies(int amount) {
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.createQuery("SELECT m FROM Movie m ORDER BY m.popularity DESC", Movie.class)
+                    .setMaxResults(amount)
+                    .getResultList();
+        }
+    }
+
     public List<Movie> topTenLowestRatedMovies() {
         try (EntityManager em = emf.createEntityManager()) {
             return em.createQuery("SELECT m FROM Movie m ORDER BY m.rating ASC", Movie.class)
@@ -91,10 +99,26 @@ public class MovieDAO implements IDAO<Movie, Integer> {
         }
     }
 
+    public List<Movie> topXLowestRatedMovies(int amount) {
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.createQuery("SELECT m FROM Movie m ORDER BY m.rating ASC", Movie.class)
+                    .setMaxResults(amount)
+                    .getResultList();
+        }
+    }
+
     public List<Movie> topTenHighestRatedMovies() {
         try (EntityManager em = emf.createEntityManager()) {
             return em.createQuery("SELECT m FROM Movie m ORDER BY m.rating DESC", Movie.class)
                     .setMaxResults(10)
+                    .getResultList();
+        }
+    }
+
+    public List<Movie> topXHighestRatedMovies(int amount) {
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.createQuery("SELECT m FROM Movie m ORDER BY m.rating DESC", Movie.class)
+                    .setMaxResults(amount)
                     .getResultList();
         }
     }
