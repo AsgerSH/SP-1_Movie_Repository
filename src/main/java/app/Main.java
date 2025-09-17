@@ -20,6 +20,10 @@ public class Main {
         // Top 10 værste film
         List<Movie> top10Lowest = movieDAO.topTenLowestRatedMovies();
         top10Lowest.forEach(System.out::println);
+
+        // Top 10 bedst anmeldte film
+        List<Movie> top10Highest = movieDAO.topTenHighestRatedMovies();
+        top10Highest.forEach(System.out::println);
       
         // Top 10 mest populære film
         List<Movie> top10Popular = movieDAO.topTenPopularMovies();
