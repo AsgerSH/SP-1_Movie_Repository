@@ -17,10 +17,13 @@ public class Main {
         MovieService movieService = new MovieService();
         MovieDAO movieDAO = new MovieDAO(emf);
 
-
         // Top 10 værste film
         List<Movie> top10Lowest = movieDAO.topTenLowestRatedMovies();
         top10Lowest.forEach(System.out::println);
+      
+        // Top 10 mest populære film
+        List<Movie> top10Popular = movieDAO.topTenPopularMovies();
+        top10Popular.forEach(System.out::println);
 
         // Dette er udkommenteret - så vi ikke skal vente på alle 5000 film hver gang
 

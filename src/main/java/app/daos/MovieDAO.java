@@ -72,10 +72,21 @@ public class MovieDAO implements IDAO<Movie, Integer> {
         }
     }
 
+
     // Samme som topTenHighestRatedMovies bare ascending
     public List<Movie> topTenLowestRatedMovies() {
         try (EntityManager em = emf.createEntityManager()) {
             return em.createQuery("SELECT m FROM Movie m ORDER BY m.rating ASC", Movie.class)
+                .setMaxResults(10)
+                    .getResultList();
+        }
+    }
+
+   // .setMaxResults fortæller databasen (gennem JPA query her) at den kun må returnere X antal rækker
+    // Og eftersom vi sorterer popularitet fra højest til lavest, så returnerer den 10 højeste
+    public List<Movie> topTenPopularMovies() {
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.createQuery("SELECT m FROM Movie m ORDER BY m.popularity DESC", Movie.class)
                     .setMaxResults(10)
                     .getResultList();
         }
