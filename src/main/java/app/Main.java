@@ -19,31 +19,47 @@ public class Main {
 
         // Top 10 værste film
         List<Movie> top10Lowest = movieDAO.topTenLowestRatedMovies();
+        System.out.println("======================================");
         System.out.println("Top 10 Lowest Rated Movies");
         top10Lowest.forEach(System.out::println);
 
         // Top 10 bedst anmeldte film
         List<Movie> top10Highest = movieDAO.topTenHighestRatedMovies();
+        System.out.println("======================================");
         System.out.println("Top 10 Highest Rated Movies");
         top10Highest.forEach(System.out::println);
       
         // Top 10 mest populære film
         List<Movie> top10Popular = movieDAO.topTenPopularMovies();
+        System.out.println("======================================");
         System.out.println("Top 10 Popular Movies");
         top10Popular.forEach(System.out::println);
 
         // Top 50 af de ovennævnte metoder
         List<Movie> top50Lowest = movieDAO.topXLowestRatedMovies(50);
+        System.out.println("======================================");
         System.out.println("Top 50 Lowest Rated Movies");
         top50Lowest.forEach(System.out::println);
 
         List<Movie> top50Highest = movieDAO.topXHighestRatedMovies(50);
+        System.out.println("======================================");
         System.out.println("Top 50 Highest Rated Movies");
         top50Highest.forEach(System.out::println);
 
         List<Movie> top50Popular = movieDAO.topXPopularMovies(50);
+        System.out.println("======================================");
         System.out.println("Top 50 Popular Movies");
         top50Popular.forEach(System.out::println);
+
+        // Total rating af alle danske film de seneste 5 år
+        Double averageRating = movieDAO.totalAverageRating();
+        System.out.println("======================================");
+        System.out.println("Average Rating of Movies: " + averageRating);
+
+
+        System.out.println("======================================");
+
+        movieDAO.printAllActorAndDirectorsFromMovie("Buster's World");
 
         // Dette er udkommenteret - så vi ikke skal vente på alle 5000 film hver gang
 
@@ -51,8 +67,6 @@ public class Main {
 //         System.out.println("Starting import of Danish movies...");
 //         movieService.importDanishMovies(totalPages);
 //         System.out.println("Import done");
-
-        movieDAO.printAllActorAndDirectorsFromMovie("Buster's World");
 
     }
 }
