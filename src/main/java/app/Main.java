@@ -51,7 +51,8 @@ public class Main {
 //         System.out.println("Starting import of Danish movies...");
 //         movieService.importDanishMovies(totalPages);
 //         System.out.println("Import done");
-        
+
+        movieDAO.printAllActorAndDirectorsFromMovie("Flame & Citron");
 
     }
 }

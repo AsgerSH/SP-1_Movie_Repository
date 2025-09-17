@@ -1,6 +1,7 @@
 package app.daos;
 
 import app.entities.Actor;
+import app.entities.Movie;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
@@ -61,6 +62,16 @@ public class ActorDAO implements IDAO<Actor, Integer> {
                 return true;
             }
             return false;
+        }
+    }
+
+    public List<Actor> getActorsFromMovie(Movie movie) {
+        try (EntityManager em = emf.createEntityManager()) {
+
+            TypedQuery<Actor> q = em.createQuery(
+                    "SELECT a FROM Actor a WHERE a.movie = :movie", Actor.class);
+            q.setParameter("movie", movie);
+            return q.getResultList();
         }
     }
 }

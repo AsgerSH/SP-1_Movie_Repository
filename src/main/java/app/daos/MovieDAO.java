@@ -1,6 +1,8 @@
 package app.daos;
 
 import app.dtos.MovieDTO;
+import app.entities.Actor;
+import app.entities.Director;
 import app.entities.Movie;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -114,13 +116,44 @@ public class MovieDAO implements IDAO<Movie, Integer> {
                     .getResultList();
         }
     }
-
-    public List<Movie> topXHighestRatedMovies(int amount) {
+  
+     public List<Movie> topXHighestRatedMovies(int amount) {
         try (EntityManager em = emf.createEntityManager()) {
             return em.createQuery("SELECT m FROM Movie m ORDER BY m.rating DESC", Movie.class)
                     .setMaxResults(amount)
                     .getResultList();
         }
+    }
+
+    public Movie findMovieByTitle(String title) {
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Movie> q = em.createQuery(
+                    "SELECT m FROM Movie m WHERE m.title = :title", Movie.class);
+            q.setParameter("title", title);
+
+            return q.getSingleResult(); // will throw if no match
+        }
+    }
+
+    public void printAllActorAndDirectorsFromMovie(String movieTitle) {
+
+        Movie movie = findMovieByTitle(movieTitle);
+
+        ActorDAO actorDAO = new ActorDAO(emf);
+        DirectorDAO directorDAO = new DirectorDAO(emf);
+        List<Actor> actors = actorDAO.getActorsFromMovie(movie);
+        List<Director> directors = directorDAO.getDirectorsFromMovie(movie);
+
+        System.out.println("Movie: " + movie.getTitle() + " (" + movie.getReleaseDate() + ")");
+        System.out.println("======================================");
+
+        System.out.println("Directors:");
+        directors.forEach(d -> System.out.println("  - " + d));
+
+        System.out.println("\nActors:");
+        actors.forEach(a -> System.out.println("  - " + a));
+
+        System.out.println("======================================\n");
     }
 
 }

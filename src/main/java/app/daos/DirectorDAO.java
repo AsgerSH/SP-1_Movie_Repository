@@ -1,6 +1,8 @@
 package app.daos;
 
+import app.entities.Actor;
 import app.entities.Director;
+import app.entities.Movie;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
@@ -63,4 +65,14 @@ public class DirectorDAO implements IDAO<Director, Integer> {
             return false;
         }
     }
+    public List<Director> getDirectorsFromMovie(Movie movie) {
+        try (EntityManager em = emf.createEntityManager()) {
+
+            TypedQuery<Director> q = em.createQuery(
+                    "SELECT d FROM Director d WHERE d.movie = :movie", Director.class);
+            q.setParameter("movie", movie);
+            return q.getResultList();
+        }
+    }
+
 }
