@@ -83,11 +83,18 @@ public class MovieDAO implements IDAO<Movie, Integer> {
         }
     }
 
-    // Samme som topTenHighestRatedMovies bare ascending
     public List<Movie> topTenLowestRatedMovies() {
         try (EntityManager em = emf.createEntityManager()) {
             return em.createQuery("SELECT m FROM Movie m ORDER BY m.rating ASC", Movie.class)
                 .setMaxResults(10)
+                    .getResultList();
+        }
+    }
+
+    public List<Movie> topTenHighestRatedMovies() {
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.createQuery("SELECT m FROM Movie m ORDER BY m.rating DESC", Movie.class)
+                    .setMaxResults(10)
                     .getResultList();
         }
     }
