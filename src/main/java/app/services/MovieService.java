@@ -131,7 +131,6 @@ public class MovieService {
     }
 
     public void importDanishMovies(int totalPages) {
-
         List<MovieDTO> movieDTOList = getAllDanishMovies(totalPages);
 
         List<Movie> movieEntities = movieDTOList.stream()
@@ -143,7 +142,6 @@ public class MovieService {
 
             for (int i = 0; i < movieEntities.size(); i++) {
                 Movie movie = movieEntities.get(i);
-
                 addActorsAndDirectors(movie);
 
                 em.persist(movie);
