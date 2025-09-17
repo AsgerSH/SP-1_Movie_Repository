@@ -48,4 +48,13 @@ public class Actor {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Movie movie;
+
+    @Override
+    public String toString() {
+        return name + (character != null && !character.isBlank()
+                ? " as \"" + character + "\""
+                : "");
+    }
+
+
 }

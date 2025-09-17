@@ -43,4 +43,9 @@ public class Director {
     @EqualsAndHashCode.Exclude
     private Movie movie;
 
+
+    @Override
+    public String toString() {
+        return name + (department != null ? " (" + department + ")" : "");
+    }
 }
