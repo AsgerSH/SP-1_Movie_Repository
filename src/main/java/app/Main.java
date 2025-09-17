@@ -57,17 +57,16 @@ public class Main {
         System.out.println("Average Rating of Movies: " + averageRating);
 
 
+        System.out.println("======================================");
 
+        movieDAO.printAllActorAndDirectorsFromMovie("Buster's World");
 
         // Dette er udkommenteret - så vi ikke skal vente på alle 5000 film hver gang
 
-//         int totalPages = 286;
+//         int totalPages = 100;
 //         System.out.println("Starting import of Danish movies...");
 //         movieService.importDanishMovies(totalPages);
 //         System.out.println("Import done");
-
-        System.out.println("======================================");
-        movieDAO.printAllActorAndDirectorsFromMovie("Buster's World");
 
     }
 }
