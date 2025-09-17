@@ -29,6 +29,16 @@ public class Main {
         List<Movie> top10Popular = movieDAO.topTenPopularMovies();
         top10Popular.forEach(System.out::println);
 
+        // Top 50 af de ovennævnte metoder
+        List<Movie> top50Lowest = movieDAO.topXLowestRatedMovies(50);
+        top50Lowest.forEach(System.out::println);
+
+        List<Movie> top50Highest = movieDAO.topXHighestRatedMovies(50);
+        top50Highest.forEach(System.out::println);
+
+        List<Movie> top50Popular = movieDAO.topXPopularMovies(50);
+        top50Popular.forEach(System.out::println);
+
         // Dette er udkommenteret - så vi ikke skal vente på alle 5000 film hver gang
 
 //         int totalPages = 286;
