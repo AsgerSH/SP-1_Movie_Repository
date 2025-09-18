@@ -141,6 +141,8 @@ public class MovieService {
                 .map(this::mapToEntity)
                 .toList();
 
+        EntityManager em = emf.createEntityManager();
+
         try {
             em.getTransaction().begin();
 
