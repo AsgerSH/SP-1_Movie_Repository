@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Setter
 @Getter
 @ToString(exclude = "genreId")
 @NoArgsConstructor
@@ -32,7 +33,6 @@ public class Movie {
     @CollectionTable(name = "movie_genres", joinColumns = @JoinColumn(name = "movie_id"))
     @Column(name = "genre_id")
     private List<Integer> genreId;
-
 
     @Column(nullable = false, length = 1000)
     private String title;
