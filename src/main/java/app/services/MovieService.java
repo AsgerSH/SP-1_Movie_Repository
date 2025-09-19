@@ -153,6 +153,7 @@ public class MovieService {
                 em.persist(movie);
 
                 // Flush & clear every 50 entities - prevents memory(RAM) - loss
+                // + system.out.println so we can see during import that it's actually importing
                 if (i > 0 && i % 50 == 0) {
                     em.flush();
                     em.clear();

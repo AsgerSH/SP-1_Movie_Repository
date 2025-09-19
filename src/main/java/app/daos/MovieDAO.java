@@ -75,8 +75,7 @@ public class MovieDAO implements IDAO<Movie, Integer> {
     }
 
 
-    // .setMaxResults fortæller databasen (gennem JPA query her) at den kun må returnere X antal rækker
-    // Og eftersom vi sorterer popularitet fra højest til lavest, så returnerer den 10 højeste
+    // .setMaxResults tells the databse (through JPA query) that it's only allowed to return X amount of rows
     public List<Movie> topTenPopularMovies() {
         try (EntityManager em = emf.createEntityManager()) {
             return em.createQuery("SELECT m FROM Movie m ORDER BY m.popularity DESC", Movie.class)
@@ -145,7 +144,7 @@ public class MovieDAO implements IDAO<Movie, Integer> {
                     "SELECT m FROM Movie m WHERE m.title = :title", Movie.class);
             q.setParameter("title", title);
 
-            return q.getSingleResult(); // will throw if no match
+            return q.getSingleResult();
         }
     }
 
