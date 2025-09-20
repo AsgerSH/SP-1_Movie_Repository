@@ -61,7 +61,7 @@ class MovieDAOTest {
     @Test
     void getAll_shouldReturnAllMovies() {
         List<Movie> movies = movieDAO.getAll();
-        assertEquals(40, movies.size()); // from setup
+        assertEquals(40, movies.size());
     }
 
 
