@@ -144,9 +144,7 @@ class MovieDAOTest {
     void testTotalAverageRating() {
         Double avgRating = movieDAO.totalAverageRating();
 
-        // Check that it is not null
         assertNotNull(avgRating, "Average rating should not be null");
-
         assertTrue(avgRating >= 0 && avgRating <= 10, "Average rating should be between 0 and 10");
 
     }
